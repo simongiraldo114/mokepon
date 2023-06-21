@@ -7,8 +7,8 @@ const sectionseleccionarAtaque = document.getElementById("seleccionar-ataque")
 const botonReiniciar = document.getElementById("boton-reiniciar")
 
 const sectionseleccionarMascota = document.getElementById("seleccionar-mascota")
-const inputHipodige = document.getElementById("hipodoge")
-const inputcagpipepo = document.getElementById("capipepo")
+const inputHipodige = document.getElementById("Hipodoge")
+const inputcagpipepo = document.getElementById("Capipepo")
 const inputRatugueya = document.getElementById("Ratigueya")
 const spanMascotajugador = document.getElementById("mascota-jugador")
 
@@ -34,9 +34,9 @@ class Mokepon{
     }
 }
 
-let hipodoge = new Mokepon("Hipodoge","./acses/mokepons_mokepon_hipodoge_attack.png", 5)
+let Hipodoge = new Mokepon("Hipodoge","./acses/mokepons_mokepon_hipodoge_attack.png", 5)
 
-console.log(hipodoge)
+console.log(Hipodoge)
 
 function iniciarJuego() {
     sectionseleccionarAtaque.style.display = "none"
@@ -66,11 +66,11 @@ function seleccionarMascotaEnemigo(){
     let mascotaAleatoria = aleatorio(1,3)
     
     if(mascotaAleatoria == 1){
-        spanMascotaEnemigo.innerHTML = "hipodoge"
+        spanMascotaEnemigo.innerHTML = "Hipodoge"
     }else if(mascotaAleatoria == 2){
-        spanMascotaEnemigo.innerHTML = "capipepo"
+        spanMascotaEnemigo.innerHTML = "Capipepo"
     }else {
-        spanMascotaEnemigo.innerHTML = "Rigueya"
+        spanMascotaEnemigo.innerHTML = "Ratigueya"
     }
 }
 
