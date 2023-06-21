@@ -3,6 +3,7 @@ body{
     font-family: 'Merriweather', serif;
     background-color: #181823;
 }
+
 #seleccionar-mascota{
     display: flex;
     flex-direction: column;
