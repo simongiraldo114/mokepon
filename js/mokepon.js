@@ -20,26 +20,64 @@ const spanVidasEnemigo =document.getElementById("vidas-enemigo")
 const sectionMensajes = document.getElementById("resultado")
 const ataquesDelJugador = document.getElementById("ataques-del-jugador")
 const ataquesDelEnemigo = document.getElementById("ataques-del-enemigo")
+const contenedorTarjetas = document.getElementById("contenedor-de-targetas")
 
+let mokepones = []
+let opcionesDeMokepones
 let ataqueJugador
 let ataqueEnemigo
 let VidasEnemigo = 3
 let VidasJugador = 3
-
 class Mokepon{
     constructor(nombre, foto, vida){
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
+        this.ataues = []
     }
 }
 
 let Hipodoge = new Mokepon("Hipodoge","./acses/mokepons_mokepon_hipodoge_attack.png", 5)
+let Capipepo = new Mokepon("Capipepo","./acses/mokepons_mokepon_capipepo_attack.png",5)
+let Ratigueya =new Mokepon("Ratigueya","./acses/mokepons_mokepon_ratigueya_attack.png",5)
 
-console.log(Hipodoge)
+Hipodoge.ataues.push(
+    {nombre: "💧", id:"botonAgua"},
+    {nombre: "💧", id:"botonAgua"},
+    {nombre: "💧", id:"botonAgua"},
+    {nombre: "🔥", id:"botonFuego"},
+    {nombre: "🌱", id:"botonTierra"},
+)
+Capipepo.ataues.push(
+    {nombre: "🌱", id:"botonTierra"},
+    {nombre: "🌱", id:"botonTierra"},
+    {nombre: "🌱", id:"botonTierra"},
+    {nombre: "🔥", id:"botonFuego"},
+    {nombre: "💧", id:"botonAgua"},
+)
+Ratigueya.ataues.push(
+    {nombre: "🔥", id:"botonFuego"},
+    {nombre: "🔥", id:"botonFuego"},
+    {nombre: "🔥", id:"botonFuego"},
+    {nombre: "💧", id:"botonAgua"},
+    {nombre: "🌱", id:"botonTierra",}
+)
+
+mokepones.push(Hipodoge,Capipepo,Ratigueya)
 
 function iniciarJuego() {
     sectionseleccionarAtaque.style.display = "none"
+    mokepones.forEach((mokepon) => {
+        opcionesDeMokepones = `
+        <input type="radio" name="mascotas" id=${mokepon.nombre}> 
+        <label class="targeta-de-mokepon" for=${mokepon.nombre}>
+           <p>H${mokepon.nombre}</p> 
+           <img src=${mokepon.foto} alt=${mokepon.nombre}">
+        </label>
+        `
+    contenedorTarjetas.innerHTML += opcionesDeMokepones
+    }
+    )
     seleccionarReiniciar.style.display = "none"
     botonMascotajugador.addEventListener("click",selecionarMascotaJugador)
     botonFuego.addEventListener("click", ataqueFuego)
